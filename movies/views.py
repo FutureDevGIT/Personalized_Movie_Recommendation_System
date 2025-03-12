@@ -12,9 +12,10 @@ class MovieListView(generics.ListAPIView):
 
 class RecommendMoviesView(APIView):
     def get(self, request):
-        movie_title = request.query_params.get("title")
-        if not movie_title:
-            return Response({"error": "Movie title is required"}, status=400)
+        movie_title = request.GET.get("title", "").strip()
+        print("Received request for movie:", movie_title)  # Debugging
 
         recommendations = get_recommendations(movie_title)
+        print("Generated Recommendations:", recommendations)  # Debugging
+
         return Response({"recommendations": recommendations})
