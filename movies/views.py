@@ -17,4 +17,4 @@ class RecommendMoviesView(APIView):
             return Response({"error": "Movie title is required"}, status=400)
 
         recommendations = get_recommendations(movie_title)
-        return Response(recommendations)
+        return Response({"recommendations": recommendations})
