@@ -2,15 +2,8 @@ import React, { useState, useCallback } from "react";
 import axios from "axios";
 import { debounce } from "lodash";
 import {
-  Container,
-  TextField,
-  Grid,
-  Card,
-  CardMedia,
-  CardContent,
-  Typography,
-  CircularProgress,
-  Rating
+  Container, TextField, Grid, Card, CardMedia,
+  CardContent, Typography, CircularProgress, Rating
 } from "@mui/material";
 
 const Recommendations = () => {
@@ -19,7 +12,6 @@ const Recommendations = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Fetch recommendations with debounce
   const fetchRecommendations = useCallback(
     debounce(async (searchQuery) => {
       if (!searchQuery.trim()) return;
@@ -46,7 +38,6 @@ const Recommendations = () => {
     []
   );
 
-  // Handle search input changes
   const handleChange = (e) => {
     setQuery(e.target.value);
     fetchRecommendations(e.target.value);
@@ -70,20 +61,35 @@ const Recommendations = () => {
         {movies.length > 0 ? (
           movies.map((movie, index) => (
             <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
-              <Card sx={{ height: "100%" }}>
+              <Card sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
                 <CardMedia
                   component="img"
-                  height="300"
+                  height="350"
                   image={movie.poster || "https://via.placeholder.com/300"}
                   alt={movie.title}
                   sx={{ objectFit: "cover" }}
                 />
-                <CardContent>
+                <CardContent sx={{ flexGrow: 1 }}>
                   <Typography variant="h6">{movie.title}</Typography>
-                  <Typography variant="body2" color="textSecondary">
-                    {movie.overview?.length > 100
-                      ? movie.overview.substring(0, 100) + "..."
-                      : movie.overview || "No description available."}
+                  <Typography variant="body2" color="textSecondary" sx={{ mb: 1 }}>
+                    {movie.overview.length > 100 ? movie.overview.substring(0, 100) + "..." : movie.overview}
+                  </Typography>
+                  <Typography variant="body2">
+                    <strong>Release Date:</strong> {movie.release_date || "N/A"}
+                  </Typography>
+                  <Typography variant="body2">
+                    <strong>Genres:</strong> {movie.genres ? movie.genres.join(", ") : "N/A"}
+                  </Typography>
+                  <Rating
+                    name="movie-rating"
+                    value={movie.rating / 2}
+                    precision={0.5}
+                    readOnly
+                    size="small"
+                    sx={{ mt: 1 }}
+                  />
+                  <Typography variant="body2">
+                    <strong>Rating:</strong> {movie.rating || "N/A"}
                   </Typography>
                 </CardContent>
               </Card>
