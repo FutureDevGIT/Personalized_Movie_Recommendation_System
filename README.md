@@ -53,7 +53,8 @@ cd Personalized_Movie_Recommendation_System
 
 # Create a virtual environment & activate it
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate   # On Mac/Linux
+venv\Scripts\activate      # On Windows
 
 # Install dependencies
 pip install -r requirements.txt
