@@ -5,14 +5,10 @@ A **Personalized Movie Recommendation System** that suggests movies based on use
 ---
 
 ### **What’s Included?**
-✅ **Project Overview**  
 ✅ **Features**  
 ✅ **Tech Stack**  
 ✅ **Setup Guide** (Backend + Frontend)  
-✅ **API Endpoints**  
-✅ **How It Works**  
-✅ **Screenshots Placeholder** (Replace with real images)  
-✅ **Deployment Info**  
+✅ **How It Works**   
 ✅ **Contribution Guide**  
 ✅ **Contact & Support**
 
@@ -39,7 +35,7 @@ A **Personalized Movie Recommendation System** that suggests movies based on use
 ### **Backend**  
 - 🐍 **Django & Django REST Framework (DRF)**
 - 🤖 **Machine Learning (TF-IDF & Cosine Similarity)**
-- 🛢️ **PostgreSQL Database**
+- 🛢️ **SQlite Database**
 - 📡 **TMDb API for Movie Data**
 
 ---
