@@ -55,6 +55,7 @@ SQLAlchemy==2.0.37
 sqlparse==0.5.3
 starlette==0.41.3
 threadpoolctl==3.5.0
+tmdbv3api==1.9.0
 typer==0.15.1
 typing_extensions==4.12.2
 tzdata==2025.1
