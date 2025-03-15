@@ -49,7 +49,7 @@ A **Personalized Movie Recommendation System** that suggests movies based on use
 git clone https://github.com/FutureDevGIT/Personalized_Movie_Recommendation_System.git
 
 # Navigate to the backend directory
-cd backend
+cd Personalized_Movie_Recommendation_System
 
 # Create a virtual environment & activate it
 python -m venv venv
